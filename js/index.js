@@ -7,7 +7,6 @@ function updateSubtotal(product) {
     price=parseFloat(price.innerText);
     quantity=parseFloat(quantity.value);
     let subtotal=product.querySelector(".subtotal span");
-    
     subtotal.innerText=quantity*price;
 
     return quantity*price;
@@ -32,8 +31,6 @@ function removeProduct(event) {
    
   const target = event.currentTarget;
   target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
-  debugger
-  
 
 }
 
@@ -42,8 +39,7 @@ function removeProduct(event) {
 function createProduct() {
   let itemName=document.getElementById("newProdName");
   let itemPrice=document.getElementById("newProdPrice")
-  let table= document.querySelector("tbody");
-  
+  let table= document.querySelector("tbody"); 
   const node = document.createElement("tr");
   node.className="product"
   node.innerHTML=' <td class="name"> <span>'+itemName.value+'</span></td><td class="price">$<span>'+itemPrice.value+'</span></td><td class="quantity">   <input type="number" value="0" min="0" placeholder="Quantity" /></td> <td class="subtotal">$<span>0</span></td>  <td class="action">    <button onclick="removeProduct(event)" class="btn btn-remove">Remove</button></td>'
